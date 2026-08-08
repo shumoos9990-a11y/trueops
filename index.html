@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>TrueOps — Restaurant Operating System</title>
+    <title>TrueOps — Complete Operations System</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -179,6 +179,18 @@
             align-items: center;
         }
         
+        .hero-content .label {
+            display: inline-block;
+            background: #eff6ff;
+            color: #3b82f6;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 4px 16px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
         .hero-content h1 {
             font-size: 48px;
             font-weight: 900;
@@ -189,10 +201,16 @@
         .hero-content h1 span {
             color: #3b82f6;
         }
+        .hero-content .sub-headline {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-top: 4px;
+        }
         .hero-content p {
             font-size: 18px;
             color: #64748b;
-            margin: 20px 0 32px;
+            margin: 16px 0 32px;
             max-width: 480px;
             line-height: 1.7;
         }
@@ -349,35 +367,34 @@
             display: block;
         }
         .category-card h3 {
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 800;
             margin-bottom: 12px;
+            letter-spacing: 0.5px;
         }
-        .category-card ul {
-            list-style: none;
-            padding: 0;
-        }
-        .category-card ul li {
+        .category-card .phase-modules {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 10px;
             font-size: 14px;
             color: #475569;
-            padding: 4px 0;
-            border-bottom: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            padding: 8px 0 4px;
         }
-        .category-card ul li:last-child {
-            border-bottom: none;
-        }
-        .category-card ul li i {
-            font-size: 10px;
-            color: #3b82f6;
+        .category-card .phase-modules span {
+            background: #f1f5f9;
+            padding: 2px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #1e293b;
         }
         .category-card .count {
             margin-top: 14px;
             font-size: 12px;
             color: #94a3b8;
             font-weight: 500;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 14px;
         }
         
         /* === FEATURES === */
@@ -523,15 +540,15 @@
                 <button class="lang-btn" data-lang="ar" onclick="switchLang('ar')">AR</button>
             </div>
             <a href="#" class="en">Home</a>
-            <a href="#" class="ar">الرئيسية</a>
+            <a href="#" class="ar" style="display:none;">الرئيسية</a>
             <a href="#" class="en">Modules</a>
-            <a href="#" class="ar">الوحدات</a>
+            <a href="#" class="ar" style="display:none;">الوحدات</a>
             <a href="#" class="en">Features</a>
-            <a href="#" class="ar">المميزات</a>
+            <a href="#" class="ar" style="display:none;">المميزات</a>
             <a href="#" class="en">Pricing</a>
-            <a href="#" class="ar">الأسعار</a>
+            <a href="#" class="ar" style="display:none;">الأسعار</a>
             <a href="#" class="nav-cta en">Get Started</a>
-            <a href="#" class="nav-cta ar">ابدأ الآن</a>
+            <a href="#" class="nav-cta ar" style="display:none;">ابدأ الآن</a>
         </nav>
     </div>
 </header>
@@ -542,19 +559,23 @@
         <div class="hero-content">
             <!-- ENGLISH -->
             <div class="en">
-                <h1>Everything You Need to <span>Build &amp; Run</span> a Better Restaurant.</h1>
-                <p>TrueOps brings planning, opening, operations and financial control into one connected system.</p>
+                <span class="label">TrueOps · Complete Operations OS</span>
+                <h1>Build. Launch. Run. Grow.</h1>
+                <div class="sub-headline">Your Business. <span>One Connected System.</span></div>
+                <p>TrueOps brings planning, launch, operations and financial control into one connected system — for every industry.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn-primary">Explore Restaurant OS →</a>
+                    <a href="#" class="btn-primary">Explore The System →</a>
                     <a href="#" class="btn-outline">See How It Works</a>
                 </div>
             </div>
             <!-- ARABIC -->
             <div class="ar" style="display:none;">
-                <h1>كل ما تحتاجه <span>لبناء وتشغيل</span> مطعم أفضل.</h1>
-                <p>يجمع TrueOps التخطيط والافتتاح والعمليات والرقابة المالية في نظام واحد متكامل.</p>
+                <span class="label">ترو أبس · نظام العمليات المتكامل</span>
+                <h1>ابنِ. أطلق. شغّل. نمِّ.</h1>
+                <div class="sub-headline">عملك. <span>نظام واحد متكامل.</span></div>
+                <p>يجمع TrueOps التخطيط والانطلاق والعمليات والرقابة المالية في نظام واحد متكامل — لكل الصناعات.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn-primary">استكشف نظام المطعم ←</a>
+                    <a href="#" class="btn-primary">استكشف النظام ←</a>
                     <a href="#" class="btn-outline">شاهد كيف يعمل</a>
                 </div>
             </div>
@@ -566,25 +587,25 @@
                 <div class="dots">
                     <span></span><span></span><span></span>
                 </div>
-                <span class="title en">TrueOps · Restaurant Dashboard</span>
-                <span class="title ar" style="display:none;">ترو أبس · لوحة تحكم المطعم</span>
+                <span class="title en">TrueOps · Business Dashboard</span>
+                <span class="title ar" style="display:none;">ترو أبس · لوحة تحكم الأعمال</span>
                 <span class="badge">LIVE</span>
             </div>
             
             <div class="dashboard-stats">
                 <div class="stat-card">
-                    <div class="label en">Today's Sales</div>
-                    <div class="label ar" style="display:none;">مبيعات اليوم</div>
+                    <div class="label en">Today's Revenue</div>
+                    <div class="label ar" style="display:none;">إيرادات اليوم</div>
                     <div class="value green">$4,280</div>
                 </div>
                 <div class="stat-card">
-                    <div class="label en">Food Cost</div>
-                    <div class="label ar" style="display:none;">تكلفة الطعام</div>
+                    <div class="label en">Cost of Goods</div>
+                    <div class="label ar" style="display:none;">تكلفة البضائع</div>
                     <div class="value blue">28.4%</div>
                 </div>
                 <div class="stat-card">
-                    <div class="label en">Labor Cost</div>
-                    <div class="label ar" style="display:none;">تكلفة العمالة</div>
+                    <div class="label en">Operating Cost</div>
+                    <div class="label ar" style="display:none;">التكلفة التشغيلية</div>
                     <div class="value orange">32.1%</div>
                 </div>
                 <div class="stat-card">
@@ -598,28 +619,28 @@
                     <div class="value green">$1,142</div>
                 </div>
                 <div class="stat-card">
-                    <div class="label en">Opening Progress</div>
-                    <div class="label ar" style="display:none;">تقدم الافتتاح</div>
+                    <div class="label en">Launch Progress</div>
+                    <div class="label ar" style="display:none;">تقدم الإطلاق</div>
                     <div class="value blue">72%</div>
                 </div>
             </div>
             
             <div class="dashboard-progress">
                 <div class="progress-row">
-                    <span class="en">Pre-Opening Tasks</span>
-                    <span class="ar" style="display:none;">مهام ما قبل الافتتاح</span>
+                    <span class="en">Pre-Launch Tasks</span>
+                    <span class="ar" style="display:none;">مهام ما قبل الإطلاق</span>
                     <div class="bar"><div class="fill"></div></div>
                     <span style="font-weight:600;color:#fff;">72%</span>
                 </div>
                 <div class="progress-row" style="margin-top:10px;">
-                    <span class="en">Staff Training</span>
-                    <span class="ar" style="display:none;">تدريب الموظفين</span>
+                    <span class="en">Team Training</span>
+                    <span class="ar" style="display:none;">تدريب الفريق</span>
                     <div class="bar"><div class="fill orange"></div></div>
                     <span style="font-weight:600;color:#fff;">45%</span>
                 </div>
                 <div class="progress-row" style="margin-top:10px;">
-                    <span class="en">Equipment Installation</span>
-                    <span class="ar" style="display:none;">تركيب المعدات</span>
+                    <span class="en">Infrastructure Setup</span>
+                    <span class="ar" style="display:none;">إعداد البنية التحتية</span>
                     <div class="bar"><div class="fill green"></div></div>
                     <span style="font-weight:600;color:#fff;">88%</span>
                 </div>
@@ -648,14 +669,12 @@
                 <span class="icon">📐</span>
                 <h3 class="en">PLAN</h3>
                 <h3 class="ar" style="display:none;">التخطيط</h3>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Business Plan</span><span class="ar" style="display:none;">خطة العمل</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Concept &amp; Brand</span><span class="ar" style="display:none;">المفهوم والعلامة التجارية</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Market Research</span><span class="ar" style="display:none;">أبحاث السوق</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Location Evaluation</span><span class="ar" style="display:none;">تقييم الموقع</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Startup Budget</span><span class="ar" style="display:none;">ميزانية التأسيس</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Funding Planner</span><span class="ar" style="display:none;">مخطط التمويل</span></li>
-                </ul>
+                <div class="phase-modules">
+                    <span>Business Plan</span>
+                    <span>Market Research</span>
+                    <span>Location</span>
+                    <span>Budget</span>
+                </div>
                 <div class="count">6 Modules</div>
             </div>
             
@@ -664,14 +683,12 @@
                 <span class="icon">🛠️</span>
                 <h3 class="en">BUILD</h3>
                 <h3 class="ar" style="display:none;">البناء</h3>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Space Planner</span><span class="ar" style="display:none;">مخطط المساحة</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Kitchen Equipment</span><span class="ar" style="display:none;">معدات المطبخ</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Furniture &amp; Smallwares</span><span class="ar" style="display:none;">الأثاث والمعدات الصغيرة</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Supplier Database</span><span class="ar" style="display:none;">قاعدة بيانات الموردين</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Construction Tracker</span><span class="ar" style="display:none;">متتبع البناء</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Equipment Installation</span><span class="ar" style="display:none;">تركيب المعدات</span></li>
-                </ul>
+                <div class="phase-modules">
+                    <span>Space</span>
+                    <span>Equipment</span>
+                    <span>Suppliers</span>
+                    <span>Staffing</span>
+                </div>
                 <div class="count">6 Modules</div>
             </div>
             
@@ -680,14 +697,12 @@
                 <span class="icon">🚀</span>
                 <h3 class="en">LAUNCH</h3>
                 <h3 class="ar" style="display:none;">الإطلاق</h3>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Staffing Plan</span><span class="ar" style="display:none;">خطة التوظيف</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Recruitment Tracker</span><span class="ar" style="display:none;">متتبع التوظيف</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Staff Training</span><span class="ar" style="display:none;">تدريب الموظفين</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Pre-Opening Checklist</span><span class="ar" style="display:none;">قائمة ما قبل الافتتاح</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Soft Opening</span><span class="ar" style="display:none;">الافتتاح التجريبي</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Grand Opening</span><span class="ar" style="display:none;">الافتتاح الكبير</span></li>
-                </ul>
+                <div class="phase-modules">
+                    <span>Training</span>
+                    <span>Inventory</span>
+                    <span>Pre-Launch</span>
+                    <span>Launch Day</span>
+                </div>
                 <div class="count">6 Modules</div>
             </div>
             
@@ -696,14 +711,12 @@
                 <span class="icon">⚙️</span>
                 <h3 class="en">OPERATE</h3>
                 <h3 class="ar" style="display:none;">التشغيل</h3>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Menu Pricing</span><span class="ar" style="display:none;">تسعير القائمة</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Purchasing Setup</span><span class="ar" style="display:none;">إعداد المشتريات</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Inventory Planner</span><span class="ar" style="display:none;">مخطط المخزون</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">SOP Setup</span><span class="ar" style="display:none;">إعداد إجراءات التشغيل</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Sales Forecast</span><span class="ar" style="display:none;">توقعات المبيعات</span></li>
-                    <li><i class="fas fa-check-circle"></i> <span class="en">Break-Even Calculator</span><span class="ar" style="display:none;">حاسبة نقطة التعادل</span></li>
-                </ul>
+                <div class="phase-modules">
+                    <span>Purchasing</span>
+                    <span>Cost Control</span>
+                    <span>Inventory</span>
+                    <span>Profit</span>
+                </div>
                 <div class="count">6+ Modules</div>
             </div>
         </div>
@@ -755,13 +768,13 @@
     <div class="container">
         <!-- ENGLISH -->
         <div class="en">
-            <h2>Ready to <span>Build</span> Your Restaurant OS?</h2>
+            <h2>Ready to <span>Build</span> Your Business OS?</h2>
             <p>Get access to all 37 modules — one-time purchase, lifetime use.</p>
             <a href="#" class="btn-primary" style="padding:16px 48px; font-size:16px;">Coming Soon →</a>
         </div>
         <!-- ARABIC -->
         <div class="ar" style="display:none;">
-            <h2>هل أنت مستعد <span>لبناء</span> نظام مطعمك؟</h2>
+            <h2>هل أنت مستعد <span>لبناء</span> نظام عملك؟</h2>
             <p>احصل على جميع الوحدات الـ 37 — شراء لمرة واحدة، استخدام مدى الحياة.</p>
             <a href="#" class="btn-primary" style="padding:16px 48px; font-size:16px;">قريباً ←</a>
         </div>
@@ -782,27 +795,18 @@
 <!-- ===== LANGUAGE SWITCHER SCRIPT ===== -->
 <script>
     function switchLang(lang) {
-        // Update buttons
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.lang === lang);
         });
-        
-        // Show/hide content
         document.querySelectorAll('.en').forEach(el => {
             el.style.display = (lang === 'en') ? '' : 'none';
         });
         document.querySelectorAll('.ar').forEach(el => {
             el.style.display = (lang === 'ar') ? '' : 'none';
         });
-        
-        // Update HTML lang attribute
         document.documentElement.lang = lang;
-        
-        // Update dir (for RTL/LTR)
         document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
     }
-    
-    // Set default to English
     document.addEventListener('DOMContentLoaded', function() {
         switchLang('en');
     });
