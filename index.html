@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>TrueOps — The Complete Operations System</title>
+    <title>TrueOps — Restaurant Operating System</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <style>
         /* === RESET === */
@@ -20,7 +23,7 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background: #f8fafc;
+            background: #ffffff;
             color: #0f172a;
             line-height: 1.6;
         }
@@ -31,15 +34,82 @@
             padding: 0 24px;
         }
         
-        /* === HEADER === */
-        header {
+        /* === LANGUAGE SWITCHER === */
+        .lang-switcher {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: 40px;
+        }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #64748b;
+            transition: all 0.2s;
+        }
+        .lang-btn.active {
             background: #0f172a;
             color: #ffffff;
-            padding: 20px 0;
+        }
+        .lang-btn:hover:not(.active) {
+            background: #e2e8f0;
+        }
+        
+        /* === BUTTONS === */
+        .btn-primary {
+            background: #0f172a;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            border: 2px solid #0f172a;
+        }
+        .btn-primary:hover {
+            background: #1e293b;
+            border-color: #1e293b;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(15,23,42,0.15);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #0f172a;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-block;
+            border: 2px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+        .btn-outline:hover {
+            border-color: #0f172a;
+            background: #f8fafc;
+            transform: translateY(-2px);
+        }
+        
+        /* === HEADER === */
+        header {
+            background: #ffffff;
+            padding: 16px 0;
+            border-bottom: 1px solid #f1f5f9;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 3px solid #3b82f6;
+            backdrop-filter: blur(12px);
+            background: rgba(255,255,255,0.92);
         }
         
         header .container {
@@ -47,235 +117,292 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 16px;
         }
         
         .logo {
-            font-size: 28px;
-            font-weight: 800;
+            font-size: 26px;
+            font-weight: 900;
             letter-spacing: -0.5px;
+            color: #0f172a;
+            text-decoration: none;
         }
-        
         .logo span {
             color: #3b82f6;
         }
-        
-        .tagline-header {
-            font-size: 14px;
+        .logo small {
+            font-size: 12px;
             font-weight: 400;
             color: #94a3b8;
-            margin-left: 8px;
+            margin-left: 6px;
+            letter-spacing: 0;
         }
         
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
         nav a {
-            color: #cbd5e1;
+            color: #475569;
             text-decoration: none;
-            margin-left: 28px;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 14px;
             transition: color 0.2s;
         }
-        
         nav a:hover {
-            color: #ffffff;
+            color: #0f172a;
         }
-        
         .nav-cta {
-            background: #3b82f6;
+            background: #0f172a;
             color: #fff !important;
-            padding: 10px 22px;
-            border-radius: 8px;
+            padding: 10px 24px;
+            border-radius: 60px;
             font-weight: 600;
+            font-size: 13px;
         }
-        
         .nav-cta:hover {
-            background: #2563eb;
+            background: #1e293b !important;
         }
         
         /* === HERO === */
         .hero {
-            padding: 80px 0 60px;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #fff;
-            border-bottom: 4px solid #3b82f6;
+            padding: 60px 0 80px;
+            background: #ffffff;
         }
         
         .hero-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.2fr;
             gap: 60px;
             align-items: center;
         }
         
-        .hero h1 {
-            font-size: 52px;
-            font-weight: 800;
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 900;
             line-height: 1.1;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
+            color: #0f172a;
         }
-        
-        .hero h1 span {
+        .hero-content h1 span {
             color: #3b82f6;
         }
-        
-        .hero p {
-            font-size: 20px;
-            color: #94a3b8;
+        .hero-content p {
+            font-size: 18px;
+            color: #64748b;
             margin: 20px 0 32px;
-            max-width: 500px;
+            max-width: 480px;
+            line-height: 1.7;
         }
-        
         .hero-buttons {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
         }
         
-        .btn-primary {
+        /* === DASHBOARD MOCKUP === */
+        .dashboard-mockup {
+            background: #0f172a;
+            border-radius: 20px;
+            padding: 20px 24px 24px;
+            box-shadow: 0 24px 64px rgba(15,23,42,0.20);
+            border: 1px solid #1e293b;
+        }
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #1e293b;
+        }
+        .dashboard-header .dots {
+            display: flex;
+            gap: 6px;
+        }
+        .dashboard-header .dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: block;
+        }
+        .dots span:nth-child(1) { background: #ef4444; }
+        .dots span:nth-child(2) { background: #f59e0b; }
+        .dots span:nth-child(3) { background: #22c55e; }
+        .dashboard-header .title {
+            color: #94a3b8;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .dashboard-header .badge {
             background: #3b82f6;
             color: #fff;
-            padding: 14px 36px;
-            border-radius: 10px;
+            font-size: 10px;
+            padding: 4px 12px;
+            border-radius: 30px;
             font-weight: 600;
-            font-size: 16px;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.2s;
         }
         
-        .btn-primary:hover {
-            background: #2563eb;
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: #fff;
-            padding: 14px 36px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 16px;
-            text-decoration: none;
-            border: 2px solid #475569;
-            display: inline-block;
-            transition: border 0.2s, color 0.2s;
-        }
-        
-        .btn-secondary:hover {
-            border-color: #94a3b8;
-            color: #ffffff;
-        }
-        
-        .hero-stats {
+        .dashboard-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 12px;
+            margin: 16px 0 18px;
+        }
+        .stat-card {
             background: #1e293b;
-            padding: 32px;
-            border-radius: 16px;
-            border: 1px solid #334155;
+            padding: 14px 16px;
+            border-radius: 12px;
         }
-        
-        .hero-stats h3 {
-            font-size: 36px;
-            font-weight: 800;
-            color: #3b82f6;
-        }
-        
-        .hero-stats p {
-            font-size: 14px;
+        .stat-card .label {
+            font-size: 11px;
             color: #94a3b8;
-            margin: 0;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
-        
-        /* === SECTION === */
-        section {
-            padding: 72px 0;
+        .stat-card .value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 2px;
         }
+        .stat-card .value.green { color: #22c55e; }
+        .stat-card .value.blue { color: #3b82f6; }
+        .stat-card .value.orange { color: #f59e0b; }
         
+        .dashboard-progress {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-top: 4px;
+        }
+        .progress-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+        .progress-row .bar {
+            width: 60%;
+            height: 6px;
+            background: #334155;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-row .bar .fill {
+            height: 100%;
+            width: 72%;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            border-radius: 10px;
+        }
+        .progress-row .bar .fill.orange { width: 45%; background: #f59e0b; }
+        .progress-row .bar .fill.green { width: 88%; background: #22c55e; }
+        
+        /* === SECTION TITLE === */
         .section-title {
             font-size: 36px;
-            font-weight: 700;
+            font-weight: 800;
             text-align: center;
-            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
         }
-        
+        .section-title span { color: #3b82f6; }
         .section-subtitle {
             text-align: center;
             color: #64748b;
             font-size: 18px;
-            max-width: 640px;
+            max-width: 600px;
             margin: 0 auto 48px;
         }
         
-        /* === MODULES === */
-        .modules-grid {
+        /* === CATEGORIES === */
+        .categories {
+            padding: 72px 0 80px;
+            background: #f8fafc;
+        }
+        
+        .category-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 24px;
         }
         
-        .module-card {
+        .category-card {
             background: #ffffff;
-            padding: 24px 20px;
-            border-radius: 12px;
+            border-radius: 16px;
+            padding: 28px 24px 24px;
             border: 1px solid #e2e8f0;
-            transition: 0.2s;
-            text-align: center;
+            transition: all 0.2s;
         }
-        
-        .module-card:hover {
-            border-color: #3b82f6;
+        .category-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(59,130,246,0.08);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+            border-color: #cbd5e1;
         }
-        
-        .module-number {
-            display: inline-block;
-            background: #eff6ff;
-            color: #3b82f6;
+        .category-card .icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .category-card h3 {
+            font-size: 18px;
             font-weight: 700;
-            font-size: 14px;
-            padding: 4px 14px;
-            border-radius: 30px;
             margin-bottom: 12px;
         }
-        
-        .module-card h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 4px;
+        .category-card ul {
+            list-style: none;
+            padding: 0;
         }
-        
-        .module-card p {
-            font-size: 13px;
-            color: #64748b;
+        .category-card ul li {
+            font-size: 14px;
+            color: #475569;
+            padding: 4px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .category-card ul li:last-child {
+            border-bottom: none;
+        }
+        .category-card ul li i {
+            font-size: 10px;
+            color: #3b82f6;
+        }
+        .category-card .count {
+            margin-top: 14px;
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 500;
         }
         
         /* === FEATURES === */
+        .features {
+            padding: 72px 0;
+        }
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
         }
-        
-        .feature {
+        .feature-item {
             text-align: center;
-            padding: 32px 20px;
-            background: #fff;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            padding: 24px 16px;
         }
-        
-        .feature-icon {
-            font-size: 40px;
+        .feature-item .icon {
+            font-size: 36px;
+            color: #3b82f6;
             margin-bottom: 12px;
         }
-        
-        .feature h4 {
-            font-size: 20px;
-            font-weight: 600;
+        .feature-item h4 {
+            font-size: 18px;
+            font-weight: 700;
         }
-        
-        .feature p {
+        .feature-item p {
             color: #64748b;
             font-size: 15px;
         }
@@ -286,19 +413,26 @@
             color: #fff;
             text-align: center;
             padding: 72px 0;
-            border-top: 4px solid #3b82f6;
         }
-        
         .cta h2 {
             font-size: 40px;
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
-        
+        .cta h2 span { color: #3b82f6; }
         .cta p {
             color: #94a3b8;
             font-size: 18px;
             max-width: 500px;
             margin: 16px auto 32px;
+        }
+        .cta .btn-primary {
+            background: #3b82f6;
+            border-color: #3b82f6;
+        }
+        .cta .btn-primary:hover {
+            background: #2563eb;
+            border-color: #2563eb;
         }
         
         /* === FOOTER === */
@@ -308,54 +442,70 @@
             padding: 32px 0;
             text-align: center;
             font-size: 14px;
+            border-top: 1px solid #1e293b;
         }
-        
         footer a {
             color: #3b82f6;
             text-decoration: none;
         }
         
+        /* === ARABIC TEXT STYLING === */
+        .ar {
+            display: none;
+            direction: rtl;
+            font-family: 'Inter', 'Tahoma', sans-serif;
+        }
+        .ar p, .ar h1, .ar h2, .ar h3, .ar h4, .ar li {
+            letter-spacing: 0.3px;
+        }
+        
         /* === RESPONSIVE === */
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
             .hero-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-            .hero h1 {
+            .hero-content h1 {
                 font-size: 38px;
             }
-            .modules-grid {
+            .category-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .features-grid {
-                grid-template-columns: 1fr 1fr;
-            }
         }
-        
-        @media (max-width: 600px) {
-            header .container {
-                flex-direction: column;
-                gap: 12px;
+        @media (max-width: 768px) {
+            nav {
+                gap: 16px;
+                flex-wrap: wrap;
             }
-            nav a {
-                margin: 0 12px;
-                font-size: 14px;
-            }
-            .hero h1 {
+            .hero-content h1 {
                 font-size: 30px;
             }
-            .hero-stats {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .modules-grid {
-                grid-template-columns: 1fr;
+            .dashboard-stats {
+                grid-template-columns: 1fr 1fr;
             }
             .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .category-grid {
                 grid-template-columns: 1fr;
             }
             .cta h2 {
                 font-size: 28px;
+            }
+        }
+        @media (max-width: 480px) {
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .dashboard-stats {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 26px;
+            }
+            .hero-content p {
+                font-size: 16px;
             }
         }
     </style>
@@ -365,15 +515,23 @@
 <!-- ===== HEADER ===== -->
 <header>
     <div class="container">
-        <div>
-            <span class="logo">True<span>Ops</span></span>
-            <span class="tagline-header">™</span>
-        </div>
+        <a href="#" class="logo">True<span>Ops</span> <small>™</small></a>
         <nav>
-            <a href="#">Home</a>
-            <a href="#modules">Modules</a>
-            <a href="#features">Features</a>
-            <a href="#" class="nav-cta">Get Started</a>
+            <!-- Language Switcher -->
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en" onclick="switchLang('en')">EN</button>
+                <button class="lang-btn" data-lang="ar" onclick="switchLang('ar')">AR</button>
+            </div>
+            <a href="#" class="en">Home</a>
+            <a href="#" class="ar">الرئيسية</a>
+            <a href="#" class="en">Modules</a>
+            <a href="#" class="ar">الوحدات</a>
+            <a href="#" class="en">Features</a>
+            <a href="#" class="ar">المميزات</a>
+            <a href="#" class="en">Pricing</a>
+            <a href="#" class="ar">الأسعار</a>
+            <a href="#" class="nav-cta en">Get Started</a>
+            <a href="#" class="nav-cta ar">ابدأ الآن</a>
         </nav>
     </div>
 </header>
@@ -381,80 +539,212 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
     <div class="container hero-grid">
-        <div>
-            <h1>Real Operations<br><span>for Real Businesses</span></h1>
-            <p>
-                TrueOps is a complete operations system — from planning and launch
-                to daily management and growth. Built for every industry.
-            </p>
-            <div class="hero-buttons">
-                <a href="#" class="btn-primary">Explore Modules →</a>
-                <a href="#" class="btn-secondary">Learn More</a>
+        <div class="hero-content">
+            <!-- ENGLISH -->
+            <div class="en">
+                <h1>Everything You Need to <span>Build &amp; Run</span> a Better Restaurant.</h1>
+                <p>TrueOps brings planning, opening, operations and financial control into one connected system.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary">Explore Restaurant OS →</a>
+                    <a href="#" class="btn-outline">See How It Works</a>
+                </div>
+            </div>
+            <!-- ARABIC -->
+            <div class="ar" style="display:none;">
+                <h1>كل ما تحتاجه <span>لبناء وتشغيل</span> مطعم أفضل.</h1>
+                <p>يجمع TrueOps التخطيط والافتتاح والعمليات والرقابة المالية في نظام واحد متكامل.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary">استكشف نظام المطعم ←</a>
+                    <a href="#" class="btn-outline">شاهد كيف يعمل</a>
+                </div>
             </div>
         </div>
-        <div class="hero-stats">
-            <div>
-                <h3>37</h3>
-                <p>Modules</p>
+        
+        <!-- Dashboard Mockup -->
+        <div class="dashboard-mockup">
+            <div class="dashboard-header">
+                <div class="dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <span class="title en">TrueOps · Restaurant Dashboard</span>
+                <span class="title ar" style="display:none;">ترو أبس · لوحة تحكم المطعم</span>
+                <span class="badge">LIVE</span>
             </div>
-            <div>
-                <h3>100%</h3>
-                <p>Customizable</p>
+            
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="label en">Today's Sales</div>
+                    <div class="label ar" style="display:none;">مبيعات اليوم</div>
+                    <div class="value green">$4,280</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label en">Food Cost</div>
+                    <div class="label ar" style="display:none;">تكلفة الطعام</div>
+                    <div class="value blue">28.4%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label en">Labor Cost</div>
+                    <div class="label ar" style="display:none;">تكلفة العمالة</div>
+                    <div class="value orange">32.1%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label en">Inventory</div>
+                    <div class="label ar" style="display:none;">المخزون</div>
+                    <div class="value" style="color:#a78bfa;">$12,450</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label en">Net Profit</div>
+                    <div class="label ar" style="display:none;">صافي الربح</div>
+                    <div class="value green">$1,142</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label en">Opening Progress</div>
+                    <div class="label ar" style="display:none;">تقدم الافتتاح</div>
+                    <div class="value blue">72%</div>
+                </div>
             </div>
-            <div>
-                <h3>1</h3>
-                <p>Complete System</p>
+            
+            <div class="dashboard-progress">
+                <div class="progress-row">
+                    <span class="en">Pre-Opening Tasks</span>
+                    <span class="ar" style="display:none;">مهام ما قبل الافتتاح</span>
+                    <div class="bar"><div class="fill"></div></div>
+                    <span style="font-weight:600;color:#fff;">72%</span>
+                </div>
+                <div class="progress-row" style="margin-top:10px;">
+                    <span class="en">Staff Training</span>
+                    <span class="ar" style="display:none;">تدريب الموظفين</span>
+                    <div class="bar"><div class="fill orange"></div></div>
+                    <span style="font-weight:600;color:#fff;">45%</span>
+                </div>
+                <div class="progress-row" style="margin-top:10px;">
+                    <span class="en">Equipment Installation</span>
+                    <span class="ar" style="display:none;">تركيب المعدات</span>
+                    <div class="bar"><div class="fill green"></div></div>
+                    <span style="font-weight:600;color:#fff;">88%</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== MODULES ===== -->
-<section id="modules">
+<!-- ===== CATEGORIES ===== -->
+<section class="categories">
     <div class="container">
-        <h2 class="section-title">Our <span style="color:#3b82f6;">Modules</span></h2>
-        <p class="section-subtitle">
-            From business planning to post-opening review — every module is connected and ready to use.
-        </p>
-        <div class="modules-grid">
-            <div class="module-card"><span class="module-number">01</span><h4>Business Plan</h4><p>Complete planning framework</p></div>
-            <div class="module-card"><span class="module-number">02</span><h4>Concept &amp; Brand</h4><p>Brand identity &amp; positioning</p></div>
-            <div class="module-card"><span class="module-number">03</span><h4>Market Research</h4><p>Data-driven insights</p></div>
-            <div class="module-card"><span class="module-number">04</span><h4>Location Evaluation</h4><p>Score &amp; compare sites</p></div>
-            <div class="module-card"><span class="module-number">05</span><h4>Startup Budget</h4><p>CAPEX &amp; cost planning</p></div>
-            <div class="module-card"><span class="module-number">06</span><h4>Funding Planner</h4><p>Investment &amp; capital</p></div>
-            <div class="module-card"><span class="module-number">07</span><h4>Sales Forecast</h4><p>Revenue projections</p></div>
-            <div class="module-card"><span class="module-number">08</span><h4>Break-Even</h4><p>Know your numbers</p></div>
-            <div class="module-card"><span class="module-number">09</span><h4>Space Planner</h4><p>Layout &amp; capacity</p></div>
-            <div class="module-card"><span class="module-number">10</span><h4>Kitchen Equipment</h4><p>Full equipment list</p></div>
-            <div class="module-card"><span class="module-number">11</span><h4>Furniture &amp; Smallwares</h4><p>Complete F&amp;B setup</p></div>
-            <div class="module-card"><span class="module-number">12</span><h4>Supplier Database</h4><p>Vendor management</p></div>
+        <!-- ENGLISH -->
+        <div class="en">
+            <h2 class="section-title">The Complete <span>37-Module</span> System</h2>
+            <p class="section-subtitle">Four integrated phases — from concept to daily operations.</p>
+        </div>
+        <!-- ARABIC -->
+        <div class="ar" style="display:none;">
+            <h2 class="section-title">النظام المتكامل <span>المكون من 37 وحدة</span></h2>
+            <p class="section-subtitle">أربع مراحل متكاملة — من الفكرة إلى العمليات اليومية.</p>
+        </div>
+        
+        <div class="category-grid">
+            <!-- PLAN -->
+            <div class="category-card">
+                <span class="icon">📐</span>
+                <h3 class="en">PLAN</h3>
+                <h3 class="ar" style="display:none;">التخطيط</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Business Plan</span><span class="ar" style="display:none;">خطة العمل</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Concept &amp; Brand</span><span class="ar" style="display:none;">المفهوم والعلامة التجارية</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Market Research</span><span class="ar" style="display:none;">أبحاث السوق</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Location Evaluation</span><span class="ar" style="display:none;">تقييم الموقع</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Startup Budget</span><span class="ar" style="display:none;">ميزانية التأسيس</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Funding Planner</span><span class="ar" style="display:none;">مخطط التمويل</span></li>
+                </ul>
+                <div class="count">6 Modules</div>
+            </div>
+            
+            <!-- BUILD -->
+            <div class="category-card">
+                <span class="icon">🛠️</span>
+                <h3 class="en">BUILD</h3>
+                <h3 class="ar" style="display:none;">البناء</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Space Planner</span><span class="ar" style="display:none;">مخطط المساحة</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Kitchen Equipment</span><span class="ar" style="display:none;">معدات المطبخ</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Furniture &amp; Smallwares</span><span class="ar" style="display:none;">الأثاث والمعدات الصغيرة</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Supplier Database</span><span class="ar" style="display:none;">قاعدة بيانات الموردين</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Construction Tracker</span><span class="ar" style="display:none;">متتبع البناء</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Equipment Installation</span><span class="ar" style="display:none;">تركيب المعدات</span></li>
+                </ul>
+                <div class="count">6 Modules</div>
+            </div>
+            
+            <!-- LAUNCH -->
+            <div class="category-card">
+                <span class="icon">🚀</span>
+                <h3 class="en">LAUNCH</h3>
+                <h3 class="ar" style="display:none;">الإطلاق</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Staffing Plan</span><span class="ar" style="display:none;">خطة التوظيف</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Recruitment Tracker</span><span class="ar" style="display:none;">متتبع التوظيف</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Staff Training</span><span class="ar" style="display:none;">تدريب الموظفين</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Pre-Opening Checklist</span><span class="ar" style="display:none;">قائمة ما قبل الافتتاح</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Soft Opening</span><span class="ar" style="display:none;">الافتتاح التجريبي</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Grand Opening</span><span class="ar" style="display:none;">الافتتاح الكبير</span></li>
+                </ul>
+                <div class="count">6 Modules</div>
+            </div>
+            
+            <!-- OPERATE -->
+            <div class="category-card">
+                <span class="icon">⚙️</span>
+                <h3 class="en">OPERATE</h3>
+                <h3 class="ar" style="display:none;">التشغيل</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Menu Pricing</span><span class="ar" style="display:none;">تسعير القائمة</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Purchasing Setup</span><span class="ar" style="display:none;">إعداد المشتريات</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Inventory Planner</span><span class="ar" style="display:none;">مخطط المخزون</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">SOP Setup</span><span class="ar" style="display:none;">إعداد إجراءات التشغيل</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Sales Forecast</span><span class="ar" style="display:none;">توقعات المبيعات</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span class="en">Break-Even Calculator</span><span class="ar" style="display:none;">حاسبة نقطة التعادل</span></li>
+                </ul>
+                <div class="count">6+ Modules</div>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- ===== FEATURES ===== -->
-<section id="features" style="background:#f1f5f9;">
+<section class="features">
     <div class="container">
-        <h2 class="section-title">Why <span style="color:#3b82f6;">TrueOps</span></h2>
-        <p class="section-subtitle">
-            One system. Every operation. No matter your industry.
-        </p>
+        <!-- ENGLISH -->
+        <div class="en">
+            <h2 class="section-title">Built for <span>Real Results</span></h2>
+            <p class="section-subtitle">Every module is connected, customizable, and ready to use.</p>
+        </div>
+        <!-- ARABIC -->
+        <div class="ar" style="display:none;">
+            <h2 class="section-title">مصمم <span>لنتائج حقيقية</span></h2>
+            <p class="section-subtitle">كل وحدة مترابطة وقابلة للتخصيص وجاهزة للاستخدام.</p>
+        </div>
+        
         <div class="features-grid">
-            <div class="feature">
-                <div class="feature-icon">📋</div>
-                <h4>Ready-to-Use</h4>
-                <p>Every module comes with templates, formulas, and dashboards.</p>
+            <div class="feature-item">
+                <div class="icon"><i class="fas fa-link"></i></div>
+                <h4 class="en">Connected System</h4>
+                <h4 class="ar" style="display:none;">نظام مترابط</h4>
+                <p class="en">Modules talk to each other — no duplicate work, no data loss.</p>
+                <p class="ar" style="display:none;">الوحدات تتواصل مع بعضها — لا عمل مكرر، ولا فقدان للبيانات.</p>
             </div>
-            <div class="feature">
-                <div class="feature-icon">🔗</div>
-                <h4>Fully Connected</h4>
-                <p>Modules talk to each other — no duplicate work, no data loss.</p>
+            <div class="feature-item">
+                <div class="icon"><i class="fas fa-industry"></i></div>
+                <h4 class="en">Industry Agnostic</h4>
+                <h4 class="ar" style="display:none;">متعدد الصناعات</h4>
+                <p class="en">Designed for restaurants, retail, clinics, education &amp; more.</p>
+                <p class="ar" style="display:none;">مصمم للمطاعم والبيع بالتجزئة والعيادات والتعليم والمزيد.</p>
             </div>
-            <div class="feature">
-                <div class="feature-icon">🏢</div>
-                <h4>Industry Agnostic</h4>
-                <p>Designed for restaurants, retail, clinics, education, and more.</p>
+            <div class="feature-item">
+                <div class="icon"><i class="fas fa-chart-line"></i></div>
+                <h4 class="en">Financial Control</h4>
+                <h4 class="ar" style="display:none;">الرقابة المالية</h4>
+                <p class="en">Budget, forecast, break-even and KPI tracking all in one place.</p>
+                <p class="ar" style="display:none;">الميزانية والتوقعات ونقطة التعادل وتتبع مؤشرات الأداء في مكان واحد.</p>
             </div>
         </div>
     </div>
@@ -463,23 +753,60 @@
 <!-- ===== CTA ===== -->
 <section class="cta">
     <div class="container">
-        <h2>Ready to Build <span style="color:#3b82f6;">Your System</span>?</h2>
-        <p>Get access to all 37 modules — one-time purchase, lifetime use.</p>
-        <a href="#" class="btn-primary" style="background:#3b82f6; color:#fff; padding:14px 48px; border-radius:10px; text-decoration:none; font-weight:600; display:inline-block;">
-            Coming Soon →
-        </a>
+        <!-- ENGLISH -->
+        <div class="en">
+            <h2>Ready to <span>Build</span> Your Restaurant OS?</h2>
+            <p>Get access to all 37 modules — one-time purchase, lifetime use.</p>
+            <a href="#" class="btn-primary" style="padding:16px 48px; font-size:16px;">Coming Soon →</a>
+        </div>
+        <!-- ARABIC -->
+        <div class="ar" style="display:none;">
+            <h2>هل أنت مستعد <span>لبناء</span> نظام مطعمك؟</h2>
+            <p>احصل على جميع الوحدات الـ 37 — شراء لمرة واحدة، استخدام مدى الحياة.</p>
+            <a href="#" class="btn-primary" style="padding:16px 48px; font-size:16px;">قريباً ←</a>
+        </div>
     </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer>
     <div class="container">
-        <p>© 2026 <strong>TrueOps</strong> — The Complete Operations System.</p>
+        <p>© 2026 <strong>TrueOps</strong> — <span class="en">The Complete Operations System.</span><span class="ar" style="display:none;">نظام العمليات المتكامل.</span></p>
         <p style="margin-top:6px; font-size:13px; color:#475569;">
-            Built for every industry. One system, endless possibilities.
+            <span class="en">From planning to legacy — one system, endless possibilities.</span>
+            <span class="ar" style="display:none;">من التخطيط إلى الإرث — نظام واحد، إمكانيات لا حصر لها.</span>
         </p>
     </div>
 </footer>
+
+<!-- ===== LANGUAGE SWITCHER SCRIPT ===== -->
+<script>
+    function switchLang(lang) {
+        // Update buttons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+        
+        // Show/hide content
+        document.querySelectorAll('.en').forEach(el => {
+            el.style.display = (lang === 'en') ? '' : 'none';
+        });
+        document.querySelectorAll('.ar').forEach(el => {
+            el.style.display = (lang === 'ar') ? '' : 'none';
+        });
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang;
+        
+        // Update dir (for RTL/LTR)
+        document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    }
+    
+    // Set default to English
+    document.addEventListener('DOMContentLoaded', function() {
+        switchLang('en');
+    });
+</script>
 
 </body>
 </html>
